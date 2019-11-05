@@ -9,7 +9,7 @@
   <ul>
   {% set doc = get_section(path="doc/_index.md") %}
   {% for page in doc.pages | reverse %}
-    {% for h1 in page.toc %}
+    {% for h1 in toc %}
       <li>
         <a class="{%if selected == page%}active{%endif%}" href="{{h1.permalink | safe}}">{{ h1.title }}</a>
         {% if h1.children %}

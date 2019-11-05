@@ -1,10 +1,10 @@
 # https://github.com/casey/just
 
 serve:
-	gutenberg serve
+	zola serve
 
 gh-pages:
-	gutenberg build
+	zola build
 	git checkout gh-pages && cp -r public/* .
 
 theme:
@@ -15,8 +15,8 @@ theme:
 bump oldversion version:
     sed --in-place 's/{{oldversion}}/{{version}}/g' content/doc/setup.md
 
-# https://github.com/Keats/gutenberg
-@gutenberg version='0.3.3' dest='~/bin':
-    echo Installing gutenberg
-    curl -s -L https://github.com/Keats/gutenberg/releases/download/v{{version}}/gutenberg-v{{version}}-x86_64-unknown-linux-gnu.tar.gz | tar xzf - -C {{dest}}
-    which gutenberg; gutenberg --version
+# https://github.com/getzola/zola
+@zola version='0.9.0' dest='~/bin':
+    echo Installing zola
+    curl -s -L https://github.com/getzola/zola/releases/download/v{{version}}/zola-v{{version}}-x86_64-unknown-linux-gnu.tar.gz | tar xzf - -C {{dest}}
+    which zola; zola --version
